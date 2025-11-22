@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
   int pin;
   try {
     pin = std::stoi(argv[1]);
-  } catch (std::invalid_argument) {
+  } catch (const std::invalid_argument&) {
     std::cerr << "Invalid argument: " << argv[1] << "\n";
     return 1;
   }
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
   int delayOnFailureMilliseconds = 500;
   while (true) {
     sensor.read();
-    // sensor.print();
+    sensor.print();
 
     if (sensor.m_readType == GOOD) {
       logger.log_on_change(sensor.m_temperature, sensor.m_humidity);
