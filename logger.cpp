@@ -43,7 +43,7 @@ void Logger::open_file() {
   }
 
   // if file didn't exist, write header
-  if (!write_header)
+  if (write_header)
     file << "time,temp,humidity\n";
 }
 
