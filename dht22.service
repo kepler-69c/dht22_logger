@@ -1,0 +1,10 @@
+[Unit]
+Description=log DHT22 output
+
+[Service]
+ExecStart=/home/raspi/dht22/dht22 4
+WorkingDirectory=/home/raspi
+
+[Install]
+WantedBy=default.target
+
