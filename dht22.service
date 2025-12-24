@@ -1,10 +1,14 @@
 [Unit]
 Description=log DHT22 output
+After=network.target
 
 [Service]
-ExecStart=/home/raspi/dht22/dht22 4
+Type=simple
+User=raspi
 WorkingDirectory=/home/raspi
+ExecStart=/home/raspi/dht22/dht22 4
+Restart=always
+RestartSec=5
 
 [Install]
-WantedBy=default.target
-
+WantedBy=multi-user.target
